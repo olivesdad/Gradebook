@@ -57,12 +57,13 @@ As an instructor, I can add students to the grade book
 ### Add Assignment
 
 ```
- __________________
-| Add Assignment   |
-| Due Date: _____  | 
-| Value   : _____  |
-|    | Enter  |    |
-|__________________|
+ ____________________
+| Add Assignment     |
+| Assignment: _____  |
+| Due Date  : _____  | 
+| Value     : _____  |
+|    | Enter  |      |
+|____________________|
 
 ```
  

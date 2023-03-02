@@ -46,7 +46,7 @@ As an instructor, I can add students to the grade book
 ```
  ______________________
 | Update Grade         |
-| Student     : ______ |
+| Student ID  : ______ |
 | Assignment# : ______ |
 | Score       : ______ | 
 |    | Enter  |        |

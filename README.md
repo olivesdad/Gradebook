@@ -5,6 +5,7 @@ Once I know what this is I'll put it here
 ## Database
 
 - Diagram:
+
 ![Diagram](/database/Diagram.png)
 
 - Scheme can be generate by executing [gradeBookSchema.sql](/database/gradeBookSchema.sql)

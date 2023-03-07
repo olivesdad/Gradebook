@@ -30,10 +30,11 @@ ENGINE = InnoDB;
 -- Table `GradeBook`.`Instructors`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `GradeBook`.`Instructors` (
-  `idInstructors` INT NOT NULL AUTO_INCREMENT,
+  `idInstructors` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idInstructors`))
+  PRIMARY KEY (`idInstructors`),
+  UNIQUE INDEX `idInstructors_UNIQUE` (`idInstructors` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 
@@ -101,3 +102,4 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+

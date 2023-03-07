@@ -7,7 +7,7 @@ Once I know what this is I'll put it here
 - Diagram:
 ![Diagram](Diagram.png)
 
-- Scheme can be generate by executing [gradeBookSchema.sql](gradeBookSchema.sql)
+- Scheme can be generate by executing [gradeBookSchema.sql](/database/gradeBookSchema.sql)
 ## User Interface
 
 ASCII sketches of user interfaces: [Here](lofi_menues.md)

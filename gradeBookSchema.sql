@@ -1,5 +1,4 @@
 -- MySQL Workbench Forward Engineering
-DROP SCHEMA IF EXISTS GradeBook;
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
@@ -21,6 +20,7 @@ USE `GradeBook` ;
 CREATE TABLE IF NOT EXISTS `GradeBook`.`Students` (
   `idStudent` INT NOT NULL,
   `Name` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idStudent`),
   UNIQUE INDEX `ID_UNIQUE` (`idStudent` ASC) VISIBLE)
 ENGINE = InnoDB;
@@ -43,6 +43,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `GradeBook`.`courses` (
   `idcourses` INT NOT NULL AUTO_INCREMENT,
   `courseName` VARCHAR(45) NOT NULL,
+  `semester` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idcourses`))
 ENGINE = InnoDB;
 
@@ -57,6 +58,7 @@ CREATE TABLE IF NOT EXISTS `GradeBook`.`Assignements` (
   `due_date` DATE NOT NULL,
   `idInstructors` INT NOT NULL,
   `idcourses` INT NOT NULL,
+  `semester` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idAssignements`),
   INDEX `fk_idInstructors_idx` (`idInstructors` ASC) VISIBLE,
   INDEX `fk_idCourses_idx` (`idcourses` ASC) VISIBLE,

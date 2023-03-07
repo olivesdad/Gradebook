@@ -15,9 +15,9 @@ CREATE SCHEMA IF NOT EXISTS `GradeBook` ;
 USE `GradeBook` ;
 
 -- -----------------------------------------------------
--- Table `GradeBook`.`Students`
+-- Table `GradeBook`.`students`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `GradeBook`.`Students` (
+CREATE TABLE IF NOT EXISTS `GradeBook`.`students` (
   `idStudent` INT NOT NULL,
   `Name` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
@@ -27,9 +27,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `GradeBook`.`Instructors`
+-- Table `GradeBook`.`instructors`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `GradeBook`.`Instructors` (
+CREATE TABLE IF NOT EXISTS `GradeBook`.`instructors` (
   `idInstructors` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
@@ -50,9 +50,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `GradeBook`.`Assignements`
+-- Table `GradeBook`.`assignments`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `GradeBook`.`Assignements` (
+CREATE TABLE IF NOT EXISTS `GradeBook`.`assignments` (
   `idAssignements` INT NOT NULL AUTO_INCREMENT,
   `assignment_name` VARCHAR(45) NOT NULL,
   `value` FLOAT NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `GradeBook`.`Assignements` (
   INDEX `fk_idCourses_idx` (`idcourses` ASC) VISIBLE,
   CONSTRAINT `fk_idInstructors`
     FOREIGN KEY (`idInstructors`)
-    REFERENCES `GradeBook`.`Instructors` (`idInstructors`)
+    REFERENCES `GradeBook`.`instructors` (`idInstructors`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_idCourses`
@@ -77,9 +77,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `GradeBook`.`Scores`
+-- Table `GradeBook`.`scores`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `GradeBook`.`Scores` (
+CREATE TABLE IF NOT EXISTS `GradeBook`.`scores` (
   `idStudent` INT NOT NULL,
   `idAssignements` INT NOT NULL,
   `score` FLOAT ZEROFILL NOT NULL,
@@ -88,18 +88,28 @@ CREATE TABLE IF NOT EXISTS `GradeBook`.`Scores` (
   INDEX `fk_Students_has_Assignements_Students_idx` (`idStudent` ASC) VISIBLE,
   CONSTRAINT `fk_Students_has_Assignements_Students`
     FOREIGN KEY (`idStudent`)
-    REFERENCES `GradeBook`.`Students` (`idStudent`)
+    REFERENCES `GradeBook`.`students` (`idStudent`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Students_has_Assignements_Assignements1`
     FOREIGN KEY (`idAssignements`)
-    REFERENCES `GradeBook`.`Assignements` (`idAssignements`)
+    REFERENCES `GradeBook`.`assignments` (`idAssignements`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `GradeBook`.`Admins`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `GradeBook`.`Admins` (
+  `idAdmins` INT NOT NULL AUTO_INCREMENT,
+  `login` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idAdmins`))
 ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-

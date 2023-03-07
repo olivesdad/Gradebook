@@ -1,6 +1,3 @@
-# Add Student
-
-As an instructor, I can add students to the grade book
 
 ---
 
